@@ -19,10 +19,9 @@ missing_states = []
 
 while correct_guess != 50:
     answer_state = screen.textinput(title=screen_title,prompt="write another state's name: ").title()
+    
     if answer_state == "Exit":
-        for state in states_list:
-            if state not in guess_states:
-                missing_states.append(state)
+        missing_states = [state for state in states_list if state not in guess_states]
         break
     if answer_state:
         if answer_state in states_list:
